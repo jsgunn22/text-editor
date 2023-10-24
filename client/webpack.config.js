@@ -28,6 +28,21 @@ module.exports = () => {
       }),
       new MiniCssExtractPlugin(),
       new GenerateSW(),
+      new WebpackPwaManifest({
+        name: "Just Another Text Editor",
+        short_name: "Jate",
+        description: "Create and edit code snipits",
+        background_color: "#808080",
+        theme_color: "#FFFFFF",
+        start_url: "/",
+        icons: [
+          {
+            src: path.resolve("./favicon.ico"),
+            sizes: [96, 128, 192, 256, 384, 512],
+            name: "icon_[size].png",
+          },
+        ],
+      }),
     ],
 
     module: {
