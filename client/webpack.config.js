@@ -3,6 +3,7 @@ const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require("path");
 const { InjectManifest, GenerateSW } = require("workbox-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
 // TODO: Add CSS loaders and babel to webpack.
@@ -27,8 +28,13 @@ module.exports = () => {
         title: "Webpack Plugin",
       }),
       new MiniCssExtractPlugin(),
-      new GenerateSW(),
+      new InjectManifest({
+        swSrc: "./src-sw.js",
+        swDest: "src-sw.js",
+      }),
       new WebpackPwaManifest({
+        filename: "manifest.json",
+        publicPath: "/",
         name: "Just Another Text Editor",
         short_name: "Jate",
         description: "Create and edit code snipits",
@@ -38,11 +44,17 @@ module.exports = () => {
         icons: [
           {
             src: path.resolve("./favicon.ico"),
-            sizes: [96, 128, 192, 256, 384, 512],
+            sizes: [96],
+            destination: "assets/icons",
             name: "icon_[size].png",
+            filename: "icon_[size].png",
           },
         ],
       }),
+      // new FaviconsWebpackPlugin({
+      //   logo: "./favicon.ico",
+      //   prefix: "assets/icons",
+      // }),
     ],
 
     module: {

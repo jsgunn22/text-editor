@@ -23,7 +23,7 @@ export const putDb = async (content) => {
   const request = store.put({ id: 1, jateContent: content });
 
   const result = await request;
-  console.log(result);
+  // console.log(result);
 };
 
 // TODO: Add logic for a method that gets all the content from the database
@@ -37,7 +37,7 @@ export const getDb = async () => {
   const request = store.get(1);
 
   const results = await request;
-  console.log(results.jateContent);
+  // console.log(results.jateContent);
   return results.jateContent;
 };
 
