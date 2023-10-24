@@ -30,15 +30,17 @@ export const putDb = async (content) => {
 export const getDb = async () => {
   const jateDb = await openDB("jate", 1);
 
-  const tx = jateDb.transaction("jate", "readwrite");
+  const tx = jateDb.transaction("jate", "readonly");
 
   const store = tx.objectStore("jate");
 
   const request = store.get(1);
 
   const results = await request;
-  // console.log(results.jateContent);
-  return results.jateContent;
+  // checks to see if there is content stored before returning the idb
+  if (results && results.jateContent !== "") {
+    return results.jateContent;
+  }
 };
 
 initdb();
