@@ -15,9 +15,9 @@ module.exports = () => {
       filename: "[name].bundle.js",
       path: path.resolve(__dirname, "dist"),
     },
-    devServer: {
-      hot: "only",
-    },
+    // devServer: {
+    //   hot: "only",
+    // },
     plugins: [
       new HtmlWebpackPlugin({
         template: "./index.html",
