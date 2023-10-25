@@ -49,6 +49,13 @@ module.exports = () => {
             name: "icon_[size].png",
             filename: "icon_[size].png",
           },
+          {
+            src: path.resolve("./src/images/logo.png"),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: "assets/icons",
+            name: "icon_[size].png",
+            filename: "icon_[size].png",
+          },
         ],
       }),
       // new FaviconsWebpackPlugin({
