@@ -2,7 +2,7 @@
   "name": "JATE",
   "scripts": {
     "dev": "webpack-dev-server --open",
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack",
     "start": "webpack --watch"
   },
   "author": "2U",
@@ -22,7 +22,6 @@
     "style-loader": "^3.2.1",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "^4.0.0",
     "webpack-pwa-manifest": "^4.0.0",
     "workbox-webpack-plugin": "^6.2.4"
   },
