@@ -1,6 +1,10 @@
 {
   "name": "JATE",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.17.0",
+    "npm": "9.6.7"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -17,8 +21,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "if-env": "^1.0.4",
-    "mini-css-extract-plugin": "^2.7.6",
-    "npm": "^10.2.1"
+    "mini-css-extract-plugin": "^2.7.6"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
