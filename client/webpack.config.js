@@ -38,8 +38,8 @@ module.exports = () => {
         name: "Just Another Text Editor",
         short_name: "Jate",
         description: "Create and edit code snipits",
-        background_color: "#808080",
-        theme_color: "#FFFFFF",
+        background_color: "#272822",
+        theme_color: "#31a9e1",
         start_url: "/",
         icons: [
           {
