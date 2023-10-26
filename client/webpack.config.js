@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = () => {
   return {
-    mode: "development",
+    mode: "development", // this is changed to 'production' when the start script is used
     entry: {
       main: "./src/js/index.js",
       install: "./src/js/install.js",
@@ -15,6 +15,8 @@ module.exports = () => {
       filename: "[name].bundle.js",
       path: path.resolve(__dirname, "dist"),
     },
+
+    // use in dev mode for live changes
     // devServer: {
     //   hot: "only",
     // },
@@ -28,6 +30,7 @@ module.exports = () => {
         swSrc: "./src-sw.js",
         swDest: "service-worker.js",
       }),
+      // creates the manifest file in dist folder
       new WebpackPwaManifest({
         filename: "manifest.json",
         publicPath: "/",
@@ -66,6 +69,7 @@ module.exports = () => {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
           type: "asset/resource",
         },
+        // babel plugin to make the app compatible with older code readers
         {
           test: /\.m?js$/,
           exclude: /(node_modules|bower_components)/,
